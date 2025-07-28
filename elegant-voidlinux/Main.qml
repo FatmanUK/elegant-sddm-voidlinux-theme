@@ -55,11 +55,11 @@ Rectangle {
             anchors.horizontalCenterOffset: +5.5 * height / 2
             fillMode: Image.PreserveAspectFit
             transformOrigin: Item.Center
-            source: "archlinux.png"
+            source: "voidlinux.png"
         }
 
         Rectangle {
-            id: archlinux
+            id: voidlinux
             anchors.centerIn: parent
             height: parent.height / 10 * 3
             width: height * 1.8
@@ -71,7 +71,7 @@ Rectangle {
                 id: mainColumn
                 anchors.centerIn: parent
                 width: parent.width * 0.9
-                spacing: archlinux.height / 22.5
+                spacing: voidlinux.height / 22.5
 
                 Text {
                     anchors.horizontalCenter: parent.horizontalCenter
@@ -81,29 +81,29 @@ Rectangle {
                     color: "white"
                     text: textConstants.welcomeText.arg(sddm.hostName)
                     wrapMode: Text.WordWrap
-                    font.pixelSize: archlinux.height / 11.75
+                    font.pixelSize: voidlinux.height / 11.75
                     elide: Text.ElideRight
                     horizontalAlignment: Text.AlignHCenter
                 }
 
                 Row {
                     width: parent.width
-                    spacing: Math.round(archlinux.height / 70)
+                    spacing: Math.round(voidlinux.height / 70)
                     Text {
                         id: lblName
-                        width: parent.width * 0.20; height: archlinux.height / 9
+                        width: parent.width * 0.20; height: voidlinux.height / 9
                         color: "white"
                         text: textConstants.userName
                         verticalAlignment: Text.AlignVCenter
                         font.bold: true
-                        font.pixelSize: archlinux.height / 22.5
+                        font.pixelSize: voidlinux.height / 22.5
                     }
 
                     TextBox {
                         id: name
-                        width: parent.width * 0.8; height: archlinux.height / 9
+                        width: parent.width * 0.8; height: voidlinux.height / 9
                         text: userModel.lastUser
-                        font.pixelSize: archlinux.height / 20
+                        font.pixelSize: voidlinux.height / 20
 
                         KeyNavigation.backtab: rebootButton; KeyNavigation.tab: password
 
@@ -118,21 +118,21 @@ Rectangle {
 
                 Row {
                     width: parent.width
-                    spacing : Math.round(archlinux.height / 70)
+                    spacing : Math.round(voidlinux.height / 70)
                     Text {
                         id: lblPassword
-                        width: parent.width * 0.2; height: archlinux.height / 9
+                        width: parent.width * 0.2; height: voidlinux.height / 9
                         color: "white"
                         text: textConstants.password
                         verticalAlignment: Text.AlignVCenter
                         font.bold: true
-                        font.pixelSize: archlinux.height / 22.5
+                        font.pixelSize: voidlinux.height / 22.5
                     }
 
                     PasswordBox {
                         id: password
-                        width: parent.width * 0.8; height: archlinux.height / 9
-                        font.pixelSize: archlinux.height / 20
+                        width: parent.width * 0.8; height: voidlinux.height / 9
+                        font.pixelSize: voidlinux.height / 20
                         tooltipBG: "lightgrey"
                         focus: true
                         Timer {
@@ -153,31 +153,31 @@ Rectangle {
                 }
 
                 Row {
-                    spacing: Math.round(archlinux.height / 70)
+                    spacing: Math.round(voidlinux.height / 70)
                     width: parent.width / 2
                     z: 100
 
                     Row {
                         z: 100
                         width: parent.width * 1.2
-                        spacing : Math.round(archlinux.height / 70)
+                        spacing : Math.round(voidlinux.height / 70)
                         anchors.bottom: parent.bottom
 
                         Text {
                             id: lblSession
-                            width: parent.width  / 3; height: archlinux.height / 9
+                            width: parent.width  / 3; height: voidlinux.height / 9
                             text: textConstants.session
                             verticalAlignment: Text.AlignVCenter
                             color: "white"
                             wrapMode: TextEdit.WordWrap
                             font.bold: true
-                            font.pixelSize: archlinux.height / 22.5
+                            font.pixelSize: voidlinux.height / 22.5
                         }
 
                         ComboBox {
                             id: session
-                            width: parent.width * 4 / 3; height: archlinux.height / 9
-                            font.pixelSize: archlinux.height / 20
+                            width: parent.width * 4 / 3; height: voidlinux.height / 9
+                            font.pixelSize: voidlinux.height / 20
 
                             arrowIcon: "angle-down.png"
 
@@ -190,7 +190,7 @@ Rectangle {
                     Row {
                         z: 101
                         width: parent.width * 0.8
-                        spacing : archlinux.height / 27
+                        spacing : voidlinux.height / 27
                         anchors.bottom: parent.bottom
 
                         KeyNavigation.backtab: session; KeyNavigation.tab: loginButton
@@ -205,22 +205,22 @@ Rectangle {
                         anchors.horizontalCenter: parent.horizontalCenter
                         text: textConstants.prompt
                         color: "white"
-                        font.pixelSize: archlinux.height / 22.5
+                        font.pixelSize: voidlinux.height / 22.5
                     }
                 }
 
                 Row {
-                    spacing: Math.round(archlinux.height / 70)
+                    spacing: Math.round(voidlinux.height / 70)
                     anchors.horizontalCenter: parent.horizontalCenter
                     property int btnWidth: Math.max(loginButton.implicitWidth,
                                                     shutdownButton.implicitWidth,
-                                                    rebootButton.implicitWidth, archlinux.height / 3) + 8
+                                                    rebootButton.implicitWidth, voidlinux.height / 3) + 8
                     Button {
                         id: loginButton
                         text: textConstants.login
                         width: parent.btnWidth
-                        height: archlinux.height / 9
-                        font.pixelSize: archlinux.height / 20
+                        height: voidlinux.height / 9
+                        font.pixelSize: voidlinux.height / 20
                         color: "#1793d1"
 
                         onClicked: sddm.login(name.text, password.text, session.index)
@@ -232,8 +232,8 @@ Rectangle {
                         id: shutdownButton
                         text: textConstants.shutdown
                         width: parent.btnWidth
-                        height: archlinux.height / 9
-                        font.pixelSize: archlinux.height / 20
+                        height: voidlinux.height / 9
+                        font.pixelSize: voidlinux.height / 20
                         color: "#1793d1"
 
                         onClicked: sddm.powerOff()
@@ -245,8 +245,8 @@ Rectangle {
                         id: rebootButton
                         text: textConstants.reboot
                         width: parent.btnWidth
-                        height: archlinux.height / 9
-                        font.pixelSize: archlinux.height / 20
+                        height: voidlinux.height / 9
+                        font.pixelSize: voidlinux.height / 20
                         color: "#1793d1"
 
                         onClicked: sddm.reboot()
