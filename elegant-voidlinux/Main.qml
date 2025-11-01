@@ -105,6 +105,13 @@ Rectangle {
                         text: userModel.lastUser
                         font.pixelSize: voidlinux.height / 20
 
+                        focus: true
+                        Timer {
+                            interval: 200
+                            running: true
+                            onTriggered: name.forceActiveFocus()
+                        }
+
                         KeyNavigation.backtab: rebootButton; KeyNavigation.tab: password
 
                         Keys.onPressed: {
@@ -134,12 +141,6 @@ Rectangle {
                         width: parent.width * 0.8; height: voidlinux.height / 9
                         font.pixelSize: voidlinux.height / 20
                         tooltipBG: "lightgrey"
-                        focus: true
-                        Timer {
-                            interval: 200
-                            running: true
-                            onTriggered: password.forceActiveFocus()
-                        }
 
                         KeyNavigation.backtab: name; KeyNavigation.tab: session
 
